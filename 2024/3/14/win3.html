@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 400px;
+      height: 400px;
+      margin: 100px auto;
+      position: relative;
+    }
+    .box .dengpao{
+      text-align: center;
+      vertical-align: middle;
+    }
+    .box .guang{
+      position: absolute;
+      top: -50px;
+      left: -75px;
+      animation: ss .5s linear 0s infinite alternate;
+    }
+    .box2 {
+      width: 400px;
+      height: 400px;
+      margin: 100px auto;
+      position: relative;
+    }
+    .box2 .huojian {
+      position: absolute;
+      animation: fly 1s ease 0s infinite alternate;
+    }
+    @keyframes ss {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    @keyframes fly {
+      from {
+        transform: translateX(-50px) translateY(-50px);
+      }
+      to {
+        transform: translateX(50px) translateY(30px);
+      }
+    }
+    .line {
+      width: 2px;
+      height: 150px;
+      position: absolute;
+      background-color: blue;
+    }
+    .l1{
+      left: 460px;
+      top: 650px;
+      animation: lineMove 1s linear 0s infinite;
+    }
+    .l2{
+      left: 480px;
+      top: 690px;
+      animation: lineMove 1s linear .4s infinite;
+    }
+    .l3{
+      left: 540px;
+      top: 630px;
+      animation: lineMove 1s linear .5s infinite;
+    }
+    .l4{
+      left: 500px;
+      top: 700px;
+      animation: lineMove 1s linear .2s infinite;
+    }
+    @keyframes lineMove {
+      0% {
+        transform: rotate(45deg) translateY(-200px);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(45deg) translateY(200px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img class="dengpao" src="./images/dengpao.png" alt="">
+    <img class="guang" src="./images/guang.png" alt="">
+  </div>
+  <div class="box2">
+    <img class="huojian" src="./images/huojian.png" alt="">
+  </div>
+  <div class="line l1"></div>
+  <div class="line l2"></div>
+  <div class="line l3"></div>
+  <div class="line l4"></div>
+</body>
+</html>

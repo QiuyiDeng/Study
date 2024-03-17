@@ -3,9 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="这是我网页的描述信息。">
+
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+    }
+    section:hover .box{
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      /* perspective: 300px; */
+      position: relative;
+      /* 保留box里面3d效果 */
+      transform-style: preserve-3d; 
+      transition: all 10s linear 0s;
+    }
+    .box p{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+    }
+    .box p:nth-child(1) {
+      background-color: rgba(219, 56, 211, 0.486);
+      transform: translateZ(100px);
+    }
+    .box p:nth-child(2) {
+      background-color: rgba(42, 128, 211, 0.486);
+      transform: translateX(100px) rotateY(-90deg); 
+    }
+    .box p:nth-child(3) {
+      background-color: rgba(216, 219, 56, 0.486);
+      transform: translateY(100px) rotateX(-90deg);
+    }
+    .box p:nth-child(4) {
+      background-color: rgba(56, 78, 219, 0.486);
+      transform: translateX(-100px) rotateY(90deg);
+    }
+    .box p:nth-child(5) {
+      background-color: rgba(56, 219, 173, 0.486);
+      transform: translateY(-100px) rotateX(90deg);
+    }
+    .box p:nth-child(6) {
+      background-color: rgba(219, 62, 56, 0.486);
+      transform: translateZ(-100px);
+    }
+  </style>
 </head>
 <body>
+  <section>
+    <div class="box">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+  </section>
   
 </body>
 </html>

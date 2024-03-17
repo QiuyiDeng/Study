@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      /* perspective: 300px; */
+      margin: 30px auto;
+      position: relative;
+    }
+    .box img{
+      border: 1px solid #000;
+      border-radius: 100%;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+    }
+    .box .dog{
+      position: absolute;
+      transition: all 1s linear 0s;
+    }
+    .box:nth-child(1) .dog {
+      transform-origin: 0 100px;
+    }
+    .box:nth-child(2) .dog {
+      transform-origin: 200px 100px;
+    }
+    .box:nth-child(3) .dog {
+      transform-origin: 100px 0;
+    }
+    .dg1:hover .dog{
+      transform: rotateY(-180deg);
+    }
+    .dg2:hover .dog{
+      transform: rotateY(180deg);
+    }
+    .dg3:hover .dog{
+      transform: rotateX(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="box dg1">
+    <img class="cat" src="./images/cat.jpg" alt="">
+    <img class="dog" src="./images/dog.jpg" alt="">
+  </div>
+  <div class="box dg2">
+    <img class="cat" src="./images/cat.jpg" alt="">
+    <img class="dog" src="./images/dog.jpg" alt="">
+  </div>
+  <div class="box dg3">
+    <img class="cat" src="./images/cat.jpg" alt="">
+    <img class="dog" src="./images/dog.jpg" alt="">
+  </div>
+</body>
+</html>
