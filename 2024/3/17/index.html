@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <button class="btn">btn</button>
+ <ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+ </ul>
+ <script>
+  var li = document.querySelectorAll('li');
+  var ul = document.querySelector('ul');
+  var OBtn = document.querySelector('.btn');
+  OBtn.onclick = function (e){
+    var newLi = document.createElement('li');
+    newLi.innerText = 'new';
+    ul.appendChild(newLi);
+  }
+  ul.onclick = function(e){
+    console.log(e.target,e.currentTarget);
+    e.target.style.color = 'red';
+  }
+  
+</script>
+</body>
+
+</html>

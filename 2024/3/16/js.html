@@ -9,14 +9,12 @@
   
 </body>
 <script>
-var arr = [1,2,3,4,5]
-arr.push(6)
-console.log(arr);
-arr.pop()
-console.log(arr);
-arr.unshift(0)
-console.log(arr);
-arr.shift()
-console.log(arr);
+var arr = [9,6,2,3,[4,5]]
+var arr2 = [].concat(arr)
+console.log(arr2,arr2==arr,arr2[4]==arr[4]); // [9,6,2,3] fase true(藕断丝连)
+var arr3 = []
+for(var i = 0;i<arr.length;i++)
+  arr3[i]=arr[i] 
+console.log(arr3,arr3==arr); // [9,6,2,3] fase true(藕断丝连)
 </script>
 </html>
