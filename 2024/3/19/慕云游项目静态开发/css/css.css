@@ -409,6 +409,7 @@
     bottom: 10px;
     left: 50%;
     margin-left: -80px;
+    z-index: 100;
 }
 .banner .circles .current{
     width: 40px;
@@ -424,6 +425,9 @@
     margin-right: 10px;
     border-radius: 10px;
     background-color: #195c45;
+    transition: width .3s linear 0s;
+    /* 鼠标指针变为小手 curp*/
+    cursor: pointer;
 }
 .hot-ads{
     margin: 32px 0;
