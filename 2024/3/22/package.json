@@ -1,0 +1,23 @@
+{
+  "name": "22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "core-js": "^3.6.5",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "babel-loader": "^8.1.0"
+  }
+}
