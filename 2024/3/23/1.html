@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="search">
+  <ul id="result">
+  </ul>
+  <script type="module">
+    import {getJSON} from './index.js';
+    const searchInput = document.querySelector('#search');
+    const resultList = document.querySelector('#result');
+    const url = 'https://www.imooc.com/api/http/search/suggest?words=';
+    const handleInputEvent = ()=>{
+      if(searchInput.value.trim()!=''){
+        getJSON(`${url}${searchInput.value.trim()}`).then(response=>{
+          let html = '';
+          resultList.style.display = '';
+          for(const item of response.data){
+            if(item.word.includes(searchInput.value.trim()))
+            html+=`<li>${item.word}</li>`
+          }
+          resultList.innerHTML = html;
+        })
+      }else{
+        resultList.innerHTML = '';
+        resultList.style.display = 'none';
+      }
+    }
+    let timer = null;
+    searchInput.addEventListener('input',()=>{
+      if(timer)clearTimeout(timer);
+      timer = setTimeout(()=>{
+        handleInputEvent();
+      },300);
+    },false)
+  </script>
+</body>
+</html>

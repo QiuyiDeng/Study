@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #cn_span {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form action="https://www.imooc.com/api/http/search/suggest?words=js" id="login" method="post" >
+    <input type="text" name="username"><br>
+    <input type="password" name="password"><br>
+    <input type="submit" id="btn" value="登录">
+  </form>
+  <script type="module">
+    import {get} from './index.js'
+    const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+    const form = document.querySelector('#login');
+    const btn = document.querySelector('#btn');
+    const {username,password} = form;
+    btn.onclick=(e)=>{
+      e.preventDefault();
+      const p = get(url,{params:{
+        username:username.value,
+        password:password.value
+      }});
+      p.then(res=>{
+        console.log(res);
+      }).catch(err=>{
+        console.log(err);
+      })
+    }
+  </script>
+</body>
+</html>
