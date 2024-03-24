@@ -1,0 +1,12 @@
+$text-color: #444;
+$small-font: 14px + 3px;
+$default-font:'microsoft yahei';
+.header {
+  font-size: $small-font;
+  .main {
+    width: 200px;
+  }
+  &:active{
+    color: $text-color;
+  }
+}

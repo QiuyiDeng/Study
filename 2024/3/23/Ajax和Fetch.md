@@ -263,10 +263,10 @@ btn.onclick=(e)=>{
 
 ### Ajax 扩展
 
+#### axios
+
 - axios 是一个基于 Promise 的 HTTP 库，可以在浏览器和 node.js 中使用
 - 第三方 Ajax 库
-
-#### axios
 
 ```
 // 引入js库
@@ -296,6 +296,8 @@ axios({
 ```
 
 #### Fetch
+
+- 替代 ajax，基于 promise
 
 ```
 
