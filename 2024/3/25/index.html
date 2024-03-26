@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+  <script>
+    const app = Vue.createApp({
+      setup(props, context) {
+        const { reactive, watch } = Vue;
+        let person = reactive({name:'',age:18});
+        watch([()=>person.name,()=>person.age],([currentNameValue,currentageValue],[prevNameValue,prevageValue])=>{
+          console.log(currentNameValue,prevNameValue,currentageValue,prevageValue);
+        })
+        return{
+          person
+        }
+      },  
+      template:`
+        <div >
+          Name：<input v-model="person.name"/>
+          Age<input v-model="person.age"/>
+          <div>{{person.name}} is {{person.age}}</div>
+        </div>
+          `
+    })
+    
+    const vm = app.mount('#root');
+  </script>
+</body>
+</html>

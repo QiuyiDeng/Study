@@ -12,58 +12,7 @@
     <div >{{total}}</div>
   </div>
   <script>
-    // const app = Vue.createApp({
-    //   data() {
-    //     return {
-    //       pirce:100,
-    //       message:'<strong>hello</strong>',
-    //       newTotal:10
-    //     }
-    //   },
-    //   computed:{
-    //     total(){
-    //       return Date.now();
-    //     }
-    //   },
-    //   watch:{
-    //     price(current,prev){
-    //       this.newTotal = current* this.price;
-    //     }
-    //   },  
-    //   beforeCreate() {
-    //     console.log('beforeCreate');
-    //   },
-    //   created() {
-    //     console.log('created');
-    //   },
-    //   beforeMount() {
-    //     console.log('beforeMount');
-    //   },
-    //   mounted() {
-    //     console.log('mounted');
-    //   },
-    //   beforeUpdate() {
-    //     console.log('beforeUpdate');
-    //   },
-    //   updated() {
-    //     console.log('updated');
-    //   },
-    // });
-    // const vm = app.mount('#root');
-    const app = Vue.createApp({
-      data(){
-        return{
-          show:true
-        }
-      },
-      template:`
-      <div v-if="show">111</div>
-      <div v-else>222</div>
-      
-      `
-    })
-
-    app.mount('#root');
+    console.log(+{age:18});
   </script>
 </body>
 </html>
