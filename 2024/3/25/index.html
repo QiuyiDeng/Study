@@ -14,22 +14,31 @@
   <script>
     const app = Vue.createApp({
       setup(props, context) {
-        const { reactive, watch } = Vue;
-        let person = reactive({name:'',age:18});
-        watch([()=>person.name,()=>person.age],([currentNameValue,currentageValue],[prevNameValue,prevageValue])=>{
-          console.log(currentNameValue,prevNameValue,currentageValue,prevageValue);
+        const { ref, onMounted} =Vue;
+        const hello = ref(null);
+        onMounted(()=>{
+          console.log(hello.value.innerText);
         })
-        return{
-          person
-        }
+        return{hello}
       },  
       template:`
         <div >
-          Name：<input v-model="person.name"/>
-          Age<input v-model="person.age"/>
-          <div>{{person.name}} is {{person.age}}</div>
+          <div ref="hello">hello world</div>
         </div>
           `
+    })
+    app.component('child',{
+      setup(){
+        const {inject,ref} = Vue;
+        const name = ref(inject('name'));
+        const changeName = inject('changeName');
+        const handleClick = ()=>{
+          changeName('jack');
+        }
+        
+        return{name,handleClick}
+      },
+      template:'<div @click="handleClick">{{name}}</div>'
     })
     
     const vm = app.mount('#root');

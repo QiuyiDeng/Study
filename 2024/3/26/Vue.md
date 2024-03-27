@@ -430,9 +430,12 @@ app.component('child',{
 
 #### watch 和 watchEffect
 
+1. watch
+
 - watch 具备 lazy，首次页面展示不执行，参数可以拿到原始和当前值
 - watch 可以监听多个属性变化，参数使用数组
 - watch 监听 reactive 变量的属性，第一个参数用回调函数的形式
+- 添加 {immediate:true} 使它无惰性
 
 ```
 const app = Vue.createApp({
@@ -455,3 +458,102 @@ const app = Vue.createApp({
       `
 })
 ```
+
+2. watchEffect
+
+- 立即执行，无惰性
+- 会自动检测内部代码，不需要传递监听对象，自动感知代码依赖监听内容变化
+- 不能获取之前数据的值
+
+```
+const stop = watchEffect=(()=>{});
+stop();//停止监听
+```
+
+#### 生命周期新写法
+
+```
+// beforeCreate => onBeforeCreate
+// Created => onCreated
+// beforeMount => onBeforeMount
+// Mounted => onMounted
+// beforeUpdate => onBeforeUpdate
+// Updated => onUpdated
+// beforeCreated => onBeforeCreated
+// onRenderTracked 当组件渲染过程中追踪到响应式依赖时调用
+// onRenderTriggered  当响应式依赖的变更触发了组件渲染时调用
+<script>
+  const app = Vue.createApp({
+    setup(props, context) {
+      const { onBeforeMount,onMounted} =Vue;
+      return{}
+    },
+    template:`
+      <div >
+        hello world
+      </div>
+        `
+  })
+```
+
+#### Provide,Injeck,Ref
+
+1. Provide,Injeck
+
+```
+const app = Vue.createApp({
+  setup(props, context) {
+    const { provide,ref} =Vue;
+    const name = ref('Bob');
+    provide('name',name);
+    provide('changeName',(value)=>{
+      name.value = value;
+      console.log(name.value);
+    })
+    return{}
+  },
+  template:`
+    <div >
+      hello world
+      <child/>
+    </div>
+      `
+})
+app.component('child',{
+  setup(){
+    const {inject,ref} = Vue;
+    const name = ref(inject('name'));
+    const changeName = inject('changeName');
+    const handleClick = ()=>{
+      changeName('jack');
+    }
+
+    return{name,handleClick}
+  },
+  template:'<div @click="handleClick">{{name}}</div>'
+})
+```
+
+2. Ref
+
+- 获取 dom 元素，ref(null)
+
+```
+const app = Vue.createApp({
+  setup(props, context) {
+    const { ref, onMounted} =Vue;
+    const hello = ref(null);
+    onMounted(()=>{
+      console.log(hello.value.innerText);
+    })
+    return{hello}
+  },
+  template:`
+    <div >
+      <div ref="hello">hello world</div>
+    </div>
+      `
+})
+```
+
+### vueCli
