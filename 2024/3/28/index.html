@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      background-color: #eee;
+    }
+    .flex-contatiner{
+      /* Flex容器是块级元素 */
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      /* 改变主轴方向 */
+      /* flex-direction: column; */
+    }
+    .flex-contatiner-inline{
+      /* Flex容器是内联元素 */
+      display: inline-flex;
+      background-color: #fff;
+      margin-top: 10px;
+      
+    }
+    .flex-item{
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      margin: 5px;
+      text-align: center;
+      line-height: 100px;
+      color: #fff;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-contatiner">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+    <div class="flex-item">4</div>
+  </div>
+  <div class="flex-contatiner-inline">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+    <div class="flex-item">4</div>
+  </div>
+</body>
+</html>
