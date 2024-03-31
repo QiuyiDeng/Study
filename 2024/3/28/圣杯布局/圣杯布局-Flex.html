@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局-Flex</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    body{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    }
+    .header-layout{
+      width: 100%;
+      height: 48px;
+      background-color: red;
+    }
+    .body-layout{
+      display: flex;
+      flex-grow:1;
+      width: 100%;
+      background-color: yellow;
+    }
+    .main-layout{
+      flex-grow: 4;
+      background-color: rgb(0, 255, 55);
+    }
+    .nav-layout{
+      order:-1;
+      flex-grow: 1;
+      background-color: rgb(0, 195, 255);
+    }
+    .aside-layout{
+      order:1;
+      flex-grow: 1;
+      background-color: rgb(225, 0, 255);
+    }
+    .footer-layout{
+      width: 100%;
+      height: 48px;
+      background-color: green;
+    }
+    .flex-center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-layout flex-center">头部</header>
+  <div class="body-layout">
+    <main class="main-layout flex-center">主体</main>
+    <nav class="nav-layout flex-center">导航</nav>
+    <aside class="aside-layout flex-center">侧栏</aside>
+  </div>
+  <footer class="footer-layout flex-center">底部</footer>
+</body>
+</html>

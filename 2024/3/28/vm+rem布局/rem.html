@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    /* 1rem=html字体大小 */
+    /* 当屏幕大小变化时修改html字体大小 */
+    html{
+      /* font-size: 10px; */
+    }
+    .footer-layout{
+      width: 75rem;
+      height: 9.6rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 -4px 4px #ddd;
+    }
+    .footer-img{
+      width: 75rem;
+    }
+  </style>
+</head>
+<body>
+  <footer class="footer-layout">
+    <img src="./tabbar.png" class="footer-img" alt="">
+  </footer>
+  <script>
+    const html = document.documentElement;
+    function setHtmlFontSize(){
+      const htmlWitch =  html.clientWidth;
+      html.style.fontSize = htmlWitch/75+'px';
+    }
+    setHtmlFontSize();
+    addEventListener('resize',setHtmlFontSize,false);
+  </script>
+</body>
+</html>
